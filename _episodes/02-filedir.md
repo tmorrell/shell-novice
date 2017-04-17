@@ -120,17 +120,6 @@ $ pwd
 ~~~
 {: .output}
 
-> ## Home Directory Variation
->
-> The home directory path will look different on different operating systems.
-> On Linux it may look like `/home/nelle`,
-> and on Windows it will be similar to `C:\Documents and Settings\nelle` or
-> `C:\Users\nelle`.  
-> (Note that it may look slightly different for different versions of Windows.)
-> In future examples, we've used Mac output as the default - Linux and Windows
-> output may differ slightly, but should be generally similar.  
-{: .callout}
-
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the
 sake of example, we'll be
@@ -202,24 +191,12 @@ system and how you have customized your filesystem.)
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
 arranged neatly into columns.
-We can make its output more comprehensible by using the **flag** `-F`,
-which tells `ls` to add a trailing `/` to the names of directories:
-
-~~~
-$ ls -F
-~~~
-{: .bash}
-
-~~~
-Applications/ Documents/    Library/      Music/        Public/
-Desktop/      Downloads/    Movies/       Pictures/
-~~~
-{: .output}
 
 `ls` has lots of other options. To find out what they are, we can type:
 
 ~~~
-$ ls --help
+$ man ls (mac)
+$ ls --help (windows)
 ~~~
 {: .bash}
 
@@ -372,13 +349,12 @@ you may use the up and down arrow keys to move line-by-line,
 or try the "b" and spacebar keys to skip up and down by full page.
 Quit the `man` pages by typing "q".
 
-Here,
-we can see that our home directory contains mostly **sub-directories**.
-Any names in your output that don't have trailing slashes,
-are plain old **files**.
-And note that there is a space between `ls` and `-F`:
+Let's try an option - `-l` says long listing format.  Type `ls -l` 
+You see a format with more information about your directories.
+
+And note that there is a space between `ls` and `-l`:
 without it,
-the shell thinks we're trying to run a command called `ls-F`,
+the shell thinks we're trying to run a command called `ls-l`,
 which doesn't exist.
 
 > ## Parameters vs. Arguments
@@ -393,19 +369,19 @@ which doesn't exist.
 {: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
-look at our `Desktop` directory by running `ls -F Desktop`,
+look at our `Desktop` directory by running `ls Desktop`,
 i.e.,
-the command `ls` with the **arguments** `-F` and `Desktop`.
-The second argument --- the one *without* a leading dash --- tells `ls` that
+the command `ls` with the **argument** `Desktop`.
+The argument *without* a leading dash tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~
-$ ls -F Desktop
+$ ls Desktop
 ~~~
 {: .bash}
 
 ~~~
-data-shell/
+data-shell
 ~~~
 {: .output}
 
@@ -427,8 +403,12 @@ can do two things.
 First, we can look at its contents, using the same strategy as before, passing
 a directory name to `ls`:
 
+Note that we can use the tab key to complete the names of directories or files.
+This makes it very fast to move through the file system.
+
+
 ~~~
-$ ls -F Desktop/data-shell
+$ ls Desktop/data-shell
 ~~~
 {: .bash}
 
