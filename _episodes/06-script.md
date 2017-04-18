@@ -305,24 +305,15 @@ Instead of typing them in again
 we can do this:
 
 ~~~
-$ history | tail -n 5 > redo-figure-3.sh
+$ history | tail -n 5 > history.sh
 ~~~
 {: .bash}
 
-The file `redo-figure-3.sh` now contains:
-
-~~~
-297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
-298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
-299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
-300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
-301 history | tail -n 5 > redo-figure-3.sh
-~~~
-{: .source}
+The file `history.sh` now contains your last types commands
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
-we have a completely accurate record of how we created that figure.
+we have a completely accurate record of what we just did.
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
 to make sure they're doing the right thing,
